@@ -13,4 +13,5 @@ module.exports = {
       return args;
     });
   },
+  publicPath: process.env.NODE_ENV === "production" ? "/bfb-client/" : "/",
 };
