@@ -8,10 +8,14 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    container: node:14-alpine
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
+
+      - name: Use Node.js 14
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
 
       - name: Install and Build 🔧 # This example project is built using npm and outputs the result to the 'build' folder. Replace with the commands required to build your project, or remove this step entirely if your site is pre-built.
         run: |
