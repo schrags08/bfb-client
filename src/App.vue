@@ -10,9 +10,7 @@
             >
           </router-link>
         </q-toolbar-title>
-
-
-          </q-toolbar>
+      </q-toolbar>
     </q-header>
     <q-page-container>
       <router-view />
@@ -20,7 +18,7 @@
   </q-layout>
 </template>
 <script>
-import "quasar/dist/quasar.css";
+import "quasar/dist/quasar.min.css";
 import "@quasar/extras/material-icons/material-icons.css";
 
 export default {
@@ -73,10 +71,5 @@ body {
   .q-page-container {
     padding-top: 0 !important;
   }
-
-  // .logo__type {
-  //   color: black;
-  //   text-shadow: 2px 2px 0.25px gold;
-  // }
 }
 </style>
