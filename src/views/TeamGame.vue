@@ -19,6 +19,8 @@
             <q-input
               label="Max Lanes"
               v-model.number="maxLanes"
+              min="1"
+              max="500"
               type="number"
               outlined
               :disable="!hasData"
