@@ -50,7 +50,7 @@
           </div>
           <div class="col">
             <div class="loader">
-              <q-spinner-puff xv-if="loading" color="primary" />
+              <q-spinner-puff v-if="loading" color="primary" />
             </div>
           </div>
         </div>
