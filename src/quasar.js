@@ -13,6 +13,8 @@ import {
   QPageContainer,
   QPage,
   QSelect,
+  QSpinner,
+  QSpinnerPuff,
   QToolbar,
   QToolbarTitle,
 } from "quasar";
@@ -30,6 +32,8 @@ Vue.use(Quasar, {
     QPageContainer,
     QPage,
     QSelect,
+    QSpinner,
+    QSpinnerPuff,
     QToolbar,
     QToolbarTitle,
   },

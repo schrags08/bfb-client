@@ -36,16 +36,23 @@
             />
           </div>
         </div>
-        <div class="row q-my-md">
-          <span class="stats text-caption">
-            <template v-if="!hasData">
-              <span>No data. Import standings sheet to start.</span>
-            </template>
-            <template v-else>
-              <span>Teams: {{ teams.length }}</span> |
-              <span>Bowlers: {{ bowlers.length }}</span>
-            </template>
-          </span>
+        <div class="row justify-between q-my-md">
+          <div class="col">
+            <span class="stats text-caption">
+              <template v-if="!hasData">
+                <span>No data. Import standings sheet to start.</span>
+              </template>
+              <template v-else>
+                <span>Teams: {{ teams.length }}</span> |
+                <span>Bowlers: {{ bowlers.length }}</span>
+              </template>
+            </span>
+          </div>
+          <div class="col">
+            <span class="loader">
+              <q-spinner-puff v-if="loading" color="primary" />
+            </span>
+          </div>
         </div>
       </div>
       <div class="my-card">
@@ -109,6 +116,7 @@ export default {
   },
   data() {
     return {
+      loading: false,
       maxLanes: 38,
       file: null,
       teams: [],
@@ -170,16 +178,22 @@ export default {
     file(val) {
       console.debug("watch file", val);
 
-      getBowlersFromStandingsFile(val).then((parsedStandings) => {
-        const { teams, bowlers } = parsedStandings;
+      this.loading = true;
 
-        console.debug("import new teams", teams);
-        console.debug("import new bowlers", bowlers);
+      getBowlersFromStandingsFile(val)
+        .then((parsedStandings) => {
+          const { teams, bowlers } = parsedStandings;
 
-        this.teams = Object.freeze(teams);
-        this.bowlers = Object.freeze(bowlers);
-        this.laneAssignments = [];
-      });
+          console.debug("import new teams", teams);
+          console.debug("import new bowlers", bowlers);
+
+          this.teams = Object.freeze(teams);
+          this.bowlers = Object.freeze(bowlers);
+          this.laneAssignments = [];
+        })
+        .finally(() => {
+          this.loading = false;
+        });
     },
   },
 };
@@ -209,6 +223,10 @@ export default {
 
 .lane .q-card__section:last-child {
   min-height: 235px;
+}
+
+.loader {
+  text-align: right;
 }
 
 @media print {
