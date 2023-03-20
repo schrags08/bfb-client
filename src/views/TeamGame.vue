@@ -49,9 +49,9 @@
             </span>
           </div>
           <div class="col">
-            <span class="loader">
-              <q-spinner-puff v-if="loading" color="primary" />
-            </span>
+            <div class="loader">
+              <q-spinner-puff xv-if="loading" color="primary" />
+            </div>
           </div>
         </div>
       </div>
