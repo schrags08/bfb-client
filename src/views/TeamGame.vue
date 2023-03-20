@@ -49,7 +49,7 @@
         </div>
       </div>
       <div class="my-card">
-        <q-card class="lane" v-for="(lane, i) in lanes" :key="i">
+        <q-card flat bordered class="lane" v-for="(lane, i) in lanes" :key="i">
           <q-card-section>
             <div class="row q-gutter-md">
               <div class="col">
