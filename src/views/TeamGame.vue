@@ -40,7 +40,15 @@
           <div class="col">
             <span class="stats text-caption">
               <template v-if="!hasData">
-                <span>No data. Import standings sheet to start.</span>
+                <span
+                  >No data.
+                  <a
+                    href="https://lss.bowl.com/leagueStandingSheets/ViewSearchLeagueServlet"
+                    target="_blank"
+                    >Import standings sheet</a
+                  >
+                  to start.</span
+                >
               </template>
               <template v-else>
                 <span>Teams: {{ teams.length }}</span> |
