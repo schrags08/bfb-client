@@ -17,7 +17,7 @@
           </div>
           <div class="col">
             <q-input
-              label="Max Lanes"
+              label="Max Lanes at Bowling Alley"
               v-model.number="maxLanes"
               min="1"
               max="500"
@@ -45,7 +45,7 @@
                   <a
                     href="https://lss.bowl.com/leagueStandingSheets/ViewSearchLeagueServlet"
                     target="_blank"
-                    >Import standings sheet</a
+                    >Download a standings sheet</a
                   >
                   to start.</span
                 >
@@ -125,7 +125,7 @@ export default {
   data() {
     return {
       loading: false,
-      maxLanes: 38,
+      maxLanes: 84,
       file: null,
       teams: [],
       bowlers: [],
