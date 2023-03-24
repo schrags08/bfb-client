@@ -35,11 +35,11 @@ export default {
     return {
       idle: false,
       timeoutId: null,
-      screenSaverDelayMs: 60000,
+      screenSaverDelayMs: 120000,
     };
   },
   methods: {
-    onMouseMove(e) {
+    onMouseMove() {
       this.resetTimer();
     },
     onIdle() {
