@@ -39,7 +39,7 @@
         <div class="row justify-between q-my-md">
           <div class="col">
             <span class="stats text-caption">
-              <template v-if="!hasData">
+              <template v-if="!hasData && !loading">
                 <span
                   >No data.
                   <a
@@ -49,6 +49,9 @@
                   >
                   to start.</span
                 >
+              </template>
+              <template v-else-if="loading">
+                <span>Loading...</span>
               </template>
               <template v-else>
                 <span>Teams: {{ teams.length }}</span> |
